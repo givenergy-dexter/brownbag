@@ -369,3 +369,13 @@ transition: fade-out
 ---
 
 React Hooks: Questions?
+
+---
+layout: center
+class: text-center
+transition: fade-out
+---
+
+# Coding challenge
+
+If we've got time, let's work through a challenge together
