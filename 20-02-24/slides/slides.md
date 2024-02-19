@@ -243,9 +243,61 @@ class: text-center
 transition: fade-out
 ---
 
-# Reusable Hooks
+# Hooks
 
-Now we know how to use components, let's create a reuseable hook
+Now we know how to use components, let's take a look at hooks
+
+---
+layout: two-cols
+---
+
+# Built-in Hooks
+
+React offers a series of different hooks which can be used to build your own custom hooks.
+
+- `useState`: keep track of a variable's value across renders [updating causes a re-render]
+- `useRef`: keep track of a variable across renders [not causing a re-render]
+- `useEffect`: do something on load or when a dependency changes
+- `useMemo`: cache a value of an expensive operation
+- `useCallback`: cache a function definition
+
+::right::
+
+```js {all|1,4,27|1,5,14,17,28-30|1,13-23|1,4,7|1,9-11,13,14,19}
+import React from 'react'
+
+export function MyComponent {
+  const [count, setCount] = React.useState(0)
+  const interval = React.useRef(null)
+
+  const doubled = React.useMemo(() => count * 2, [count])
+
+  const increment = React.useCallback(() => {
+    setCount(count => count + 1)
+  }, [setState])
+
+  React.useEffect(() => {
+    interval.current = setInterval(increment, 1_000)
+
+    return () => {
+      clearInterval(interval.current)
+    }
+  }, [increment])
+
+  React.useEffect(() => {
+    console.debug('MyComponent:count %s', count)
+  }, [count])
+
+  return (
+    <>
+      <p>Count: {count}</p>
+      <button onClick={() => clearInterval(interval.current)}>
+        Stop incrementing count
+      </button>
+    </>
+  )
+}
+```
 
 ---
 layout: two-cols
@@ -379,3 +431,11 @@ transition: fade-out
 # Coding challenge
 
 If we've got time, let's work through a challenge together
+
+---
+layout: center
+class: text-center
+transition: fade-out
+---
+
+Questions?
