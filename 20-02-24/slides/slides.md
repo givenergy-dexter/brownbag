@@ -27,7 +27,7 @@ mdc: true
 
 # An introduction to React
 
-The dominant JavaScript framework
+The dominant JavaScript library
 
 ---
 transition: fade-out
@@ -41,6 +41,10 @@ React, created and maintained by Facebook, is a JavaScript library for building 
 React makes use of the Virtual DOM and ASTs ("Abstract Syntax Tree") in an attempt to target which areas of the view need to be updated based on a state change.
 
 This allows developers to create interactive UIs by using JSX (HTML-like syntax "JavaScript XML") to manage state and lifecycle events in segmented snippets of code called "Components".
+
+<br />
+
+React is downloaded _at least_ 22,000,000 times per week compared to Vue at 4,400,000 and Svelte at 900,000.
 
 ---
 
